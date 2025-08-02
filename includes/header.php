@@ -116,6 +116,85 @@ require_once 'config/config.php';
             top: 7px;
             transform: rotate(-135deg);
         }
+        
+        .carousel-container {
+            perspective: 1000px;
+        }
+        
+        .carousel-track {
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .carousel-slide {
+            backface-visibility: hidden;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .carousel-slide.active {
+            transform: translateZ(0) scale(1);
+            opacity: 1;
+            z-index: 10;
+        }
+        
+        .carousel-slide.prev {
+            transform: translateX(-100%) rotateY(45deg) scale(0.8);
+            opacity: 0.6;
+            z-index: 5;
+        }
+        
+        .carousel-slide.next {
+            transform: translateX(100%) rotateY(-45deg) scale(0.8);
+            opacity: 0.6;
+            z-index: 5;
+        }
+        
+        .carousel-slide.hidden {
+            transform: translateX(0) scale(0.5);
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(2) {
+            animation-delay: -2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            animation-delay: -4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(-10px) rotate(-1deg); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(220, 38, 38, 0.6); }
+        }
+        
+        .text-shimmer {
+            background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
     </style>
 </head>
 <body class="bg-gray-900 min-h-screen">
