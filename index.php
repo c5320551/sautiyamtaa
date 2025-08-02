@@ -55,7 +55,7 @@ function handleDynamicRoute($pattern, $handler) {
 // Route handling
 switch (true) {
     // Home routes
-    case ($request === '/' || $request === '/index' || $request === '/home'):
+    case ($request === '/' || $request === '/dev'  || $request === '/index' || $request === '/home'):
         if (!requirePage(PAGES_PATH . 'home.php')) {
             echo "Page missing: " . PAGES_PATH . 'home.php';
             echo "<br>BASE_PATH: " . BASE_PATH;
