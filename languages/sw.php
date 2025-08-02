@@ -111,5 +111,4 @@ $lang = [
     'form_send' => 'Tuma Ujumbe',
     'form_success' => 'Asante! Ujumbe wako umetumwa.',
     'form_error' => 'Samahani, kumekuwa na hitilafu kutuma ujumbe wako. Tafadhali jaribu tena.',
-    
-    //
+];
