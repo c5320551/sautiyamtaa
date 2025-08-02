@@ -10,7 +10,7 @@ define('ASSETS_URL', SITE_URL . '/assets');
 define('UPLOADS_URL', SITE_URL . '/assets/uploads');
 
 // Site information
-define('SITE_NAME', 'Voice of the Streets');
+define('SITE_NAME', 'Sauti Ya Mtaa');
 define('SITE_TAGLINE', 'Empowering Youth, Building Communities');
 define('SITE_DESCRIPTION', 'A grassroots nonprofit focused on youth empowerment and community action in Nairobi, Kenya.');
 define('SITE_KEYWORDS', 'youth empowerment, community development, Nairobi, Kenya, nonprofit, Sauti ya Mtaa');
@@ -21,9 +21,9 @@ define('CONTACT_PHONE', '+254 700 123 456');
 define('CONTACT_ADDRESS', 'Nairobi, Kenya');
 
 // Social media
-define('FACEBOOK_URL', 'https://facebook.com/sautiymtaa');
-define('TWITTER_URL', 'https://twitter.com/sautiymtaa');
-define('INSTAGRAM_URL', 'https://instagram.com/sautiymtaa');
+define('FACEBOOK_URL', 'https://www.facebook.com/SautiYa254');
+define('TWITTER_URL', 'https://x.com/Sauti_ya254');
+define('INSTAGRAM_URL', 'https://www.instagram.com/sauti_yamtaa/?hl=en');
 define('YOUTUBE_URL', 'https://youtube.com/c/sautiymtaa');
 
 // Upload settings
