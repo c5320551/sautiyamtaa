@@ -16,9 +16,17 @@ Header unset Server
     Require all denied
 </FilesMatch>
 
-# Prevent access to directories above public
-RewriteRule ^(.*)$ - [F,L]
+# Prevent access to hidden files and directories (like .git, .env, etc.)
 RewriteRule "^\..*" - [F,L]
+
+# Block access to parent directories (prevent directory traversal)
+RewriteCond %{THE_REQUEST} \s[^?]*\.\./
+RewriteRule ^.*$ - [F,L]
+
+# Block access to PHP files in non-public areas (if someone tries to access them directly)
+RewriteCond %{REQUEST_URI} !^/index\.php$
+RewriteCond %{REQUEST_URI} !^/assets/
+RewriteRule \.(php)$ - [F,L]
 
 # Handle trailing slashes (redirect to no trailing slash)
 RewriteCond %{REQUEST_FILENAME} !-d
