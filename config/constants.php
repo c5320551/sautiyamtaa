@@ -4,7 +4,7 @@ define('ENVIRONMENT', 'development');
 
 // Site paths
 define('SITE_ROOT', dirname(dirname(__FILE__)));
-define('SITE_URL', 'http://www.sautiyamtaa.co.ke'); // Change for production
+define('SITE_URL', 'https://expert-adventure-g4w499qwg5jq2vxq4-8000.app.github.dev'); // Change for production
 define('ADMIN_URL', SITE_URL . '/admin');
 define('ASSETS_URL', SITE_URL . '/assets');
 define('UPLOADS_URL', SITE_URL . '/assets/uploads');
