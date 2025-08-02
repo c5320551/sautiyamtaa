@@ -10,3 +10,5 @@
 [02-Aug-2025 09:54:35 UTC] Database connection failed: SQLSTATE[HY000] [2002] Connection refused
 [02-Aug-2025 09:54:36 UTC] Database connection failed: SQLSTATE[HY000] [2002] Connection refused
 [02-Aug-2025 10:46:18 UTC] Database connection failed: could not find driver
+[02-Aug-2025 11:24:37 UTC] Database connection failed: could not find driver
+[02-Aug-2025 11:28:33 UTC] Database connection failed: could not find driver
