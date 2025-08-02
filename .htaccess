@@ -1,0 +1,28 @@
+<?php
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Clean URLs
+RewriteRule ^program/([^/]+)/?$ program_detail.php?slug=$1 [L,QSA]
+RewriteRule ^event/([^/]+)/?$ event_detail.php?slug=$1 [L,QSA]
+RewriteRule ^blog/([^/]+)/?$ blog_post.php?slug=$1 [L,QSA]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options SAMEORIGIN
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "\.(env|log|sql|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent directory browsing
+Options -Indexes
+
