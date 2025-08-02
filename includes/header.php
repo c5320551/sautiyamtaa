@@ -21,17 +21,17 @@ require_once 'config/config.php';
                         'vots-light-gray': '#2d2d2d'
                     },
                     animation: {
-                        'fade-in-down': 'fade-in-down 0.3s ease-out',
+                        'fade-in-down': 'fade-in-down 0.2s ease-out',
                         'pulse-red': 'pulse-red 2s infinite',
                     },
                     keyframes: {
                         'fade-in-down': {
-                            '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                            '0%': { opacity: '0', transform: 'translateY(-5px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' }
                         },
                         'pulse-red': {
-                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(220, 38, 38, 0.7)' },
-                            '50%': { boxShadow: '0 0 0 8px rgba(220, 38, 38, 0)' }
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(220, 38, 38, 0.5)' },
+                            '50%': { boxShadow: '0 0 0 4px rgba(220, 38, 38, 0)' }
                         }
                     }
                 }
@@ -41,7 +41,7 @@ require_once 'config/config.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .glass-effect {
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(6px);
             background: rgba(15, 15, 15, 0.95);
         }
         
@@ -56,9 +56,9 @@ require_once 'config/config.php';
             bottom: 0;
             left: -100%;
             width: 100%;
-            height: 2px;
+            height: 1px;
             background: linear-gradient(90deg, transparent, #dc2626, transparent);
-            transition: left 0.4s ease;
+            transition: left 0.3s ease;
         }
         
         .nav-link:hover::before {
@@ -66,12 +66,12 @@ require_once 'config/config.php';
         }
         
         .logo-glow {
-            filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.3));
+            filter: drop-shadow(0 0 4px rgba(220, 38, 38, 0.3));
         }
         
         .mobile-menu-slide {
             transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.2s ease-in-out;
         }
         
         .mobile-menu-slide.open {
@@ -79,8 +79,8 @@ require_once 'config/config.php';
         }
 
         .hamburger {
-            width: 20px;
-            height: 15px;
+            width: 16px;
+            height: 12px;
             position: relative;
             cursor: pointer;
         }
@@ -88,133 +88,54 @@ require_once 'config/config.php';
         .hamburger span {
             display: block;
             position: absolute;
-            height: 2px;
+            height: 1.5px;
             width: 100%;
             background: #dc2626;
             border-radius: 1px;
             opacity: 1;
             left: 0;
             transform: rotate(0deg);
-            transition: .25s ease-in-out;
+            transition: .2s ease-in-out;
         }
         
         .hamburger span:nth-child(1) { top: 0px; }
-        .hamburger span:nth-child(2) { top: 7px; }
-        .hamburger span:nth-child(3) { top: 14px; }
+        .hamburger span:nth-child(2) { top: 5px; }
+        .hamburger span:nth-child(3) { top: 10px; }
         
         .hamburger.active span:nth-child(1) {
-            top: 7px;
+            top: 5px;
             transform: rotate(135deg);
         }
         
         .hamburger.active span:nth-child(2) {
             opacity: 0;
-            left: -50px;
+            left: -20px;
         }
         
         .hamburger.active span:nth-child(3) {
-            top: 7px;
+            top: 5px;
             transform: rotate(-135deg);
-        }
-        
-        .carousel-container {
-            perspective: 1000px;
-        }
-        
-        .carousel-track {
-            transform-style: preserve-3d;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .carousel-slide {
-            backface-visibility: hidden;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .carousel-slide.active {
-            transform: translateZ(0) scale(1);
-            opacity: 1;
-            z-index: 10;
-        }
-        
-        .carousel-slide.prev {
-            transform: translateX(-100%) rotateY(45deg) scale(0.8);
-            opacity: 0.6;
-            z-index: 5;
-        }
-        
-        .carousel-slide.next {
-            transform: translateX(100%) rotateY(-45deg) scale(0.8);
-            opacity: 0.6;
-            z-index: 5;
-        }
-        
-        .carousel-slide.hidden {
-            transform: translateX(0) scale(0.5);
-            opacity: 0;
-            z-index: 1;
-        }
-        
-        .floating-element {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .floating-element:nth-child(2) {
-            animation-delay: -2s;
-        }
-        
-        .floating-element:nth-child(3) {
-            animation-delay: -4s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(1deg); }
-            66% { transform: translateY(-10px) rotate(-1deg); }
-        }
-        
-        .pulse-glow {
-            animation: pulseGlow 3s ease-in-out infinite;
-        }
-        
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(220, 38, 38, 0.6); }
-        }
-        
-        .text-shimmer {
-            background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s ease-in-out infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
         }
     </style>
 </head>
 <body class="bg-gray-900 min-h-screen">
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-vots-red/20">
-        <div class="container mx-auto px-3 lg:px-5">
-            <div class="flex items-center justify-between h-16">
+        <div class="container mx-auto px-2 lg:px-4">
+            <div class="flex items-center justify-between h-12">
                 <!-- Logo -->
                 <div class="flex items-center group">
-                    <a href="<?php echo SITE_URL; ?>" class="flex items-center space-x-2 transition-transform duration-300 hover:scale-105">
+                    <a href="<?php echo SITE_URL; ?>" class="flex items-center space-x-1.5 transition-transform duration-200 hover:scale-105">
                         <div class="relative">
-                            <div class="w-10 h-10 bg-gradient-to-br from-vots-red to-vots-dark-red rounded-lg flex items-center justify-center logo-glow animate-pulse-red">
-                                <img src="<?php echo SITE_URL; ?>/assets/images/logo.jpeg" alt="Voice of the Streets Logo" class="w-7 h-7 object-contain" />
+                            <div class="w-7 h-7 bg-gradient-to-br from-vots-red to-vots-dark-red rounded-md flex items-center justify-center logo-glow animate-pulse-red">
+                                <img src="<?php echo SITE_URL; ?>/assets/images/logo.jpeg" alt="Voice of the Streets Logo" class="w-4 h-4 object-contain" />
                             </div>
                         </div>
                         <div class="flex flex-col">
-                            <span class="text-lg font-black text-white tracking-tight">
+                            <span class="text-sm font-black text-white tracking-tight leading-tight">
                                 Voice of the
                             </span>
-                            <span class="text-sm font-bold text-vots-red -mt-1 tracking-wider">
+                            <span class="text-xs font-bold text-vots-red -mt-0.5 tracking-wide leading-tight">
                                 STREETS
                             </span>
                         </div>
@@ -222,38 +143,38 @@ require_once 'config/config.php';
                 </div>
                 
                 <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex items-center space-x-1">
-                    <a href="<?php echo SITE_URL; ?>" class="nav-link px-3 py-2 text-gray-300 hover:text-white font-medium transition-all duration-300 hover:bg-vots-red/10 rounded-lg text-sm">
-                        <i class="fas fa-home mr-2 text-vots-red text-xs"></i>Home
+                <nav class="hidden lg:flex items-center space-x-0.5">
+                    <a href="<?php echo SITE_URL; ?>" class="nav-link px-2 py-1.5 text-gray-300 hover:text-white font-medium transition-all duration-200 hover:bg-vots-red/10 rounded-md text-xs">
+                        <i class="fas fa-home mr-1 text-vots-red text-xs"></i>Home
                     </a>
-                    <a href="<?php echo SITE_URL; ?>/about.php" class="nav-link px-3 py-2 text-gray-300 hover:text-white font-medium transition-all duration-300 hover:bg-vots-red/10 rounded-lg text-sm">
-                        <i class="fas fa-info-circle mr-2 text-vots-red text-xs"></i>About
+                    <a href="<?php echo SITE_URL; ?>/about.php" class="nav-link px-2 py-1.5 text-gray-300 hover:text-white font-medium transition-all duration-200 hover:bg-vots-red/10 rounded-md text-xs">
+                        <i class="fas fa-info-circle mr-1 text-vots-red text-xs"></i>About
                     </a>
-                    <a href="<?php echo SITE_URL; ?>/programs.php" class="nav-link px-3 py-2 text-gray-300 hover:text-white font-medium transition-all duration-300 hover:bg-vots-red/10 rounded-lg text-sm">
-                        <i class="fas fa-bullhorn mr-2 text-vots-red text-xs"></i>Programs
+                    <a href="<?php echo SITE_URL; ?>/programs.php" class="nav-link px-2 py-1.5 text-gray-300 hover:text-white font-medium transition-all duration-200 hover:bg-vots-red/10 rounded-md text-xs">
+                        <i class="fas fa-bullhorn mr-1 text-vots-red text-xs"></i>Programs
                     </a>
-                    <a href="<?php echo SITE_URL; ?>/events.php" class="nav-link px-3 py-2 text-gray-300 hover:text-white font-medium transition-all duration-300 hover:bg-vots-red/10 rounded-lg text-sm">
-                        <i class="fas fa-calendar mr-2 text-vots-red text-xs"></i>Events
+                    <a href="<?php echo SITE_URL; ?>/events.php" class="nav-link px-2 py-1.5 text-gray-300 hover:text-white font-medium transition-all duration-200 hover:bg-vots-red/10 rounded-md text-xs">
+                        <i class="fas fa-calendar mr-1 text-vots-red text-xs"></i>Events
                     </a>
-                    <a href="<?php echo SITE_URL; ?>/blog.php" class="nav-link px-3 py-2 text-gray-300 hover:text-white font-medium transition-all duration-300 hover:bg-vots-red/10 rounded-lg text-sm">
-                        <i class="fas fa-blog mr-2 text-vots-red text-xs"></i>Blog
+                    <a href="<?php echo SITE_URL; ?>/blog.php" class="nav-link px-2 py-1.5 text-gray-300 hover:text-white font-medium transition-all duration-200 hover:bg-vots-red/10 rounded-md text-xs">
+                        <i class="fas fa-blog mr-1 text-vots-red text-xs"></i>Blog
                     </a>
-                    <a href="<?php echo SITE_URL; ?>/gallery.php" class="nav-link px-3 py-2 text-gray-300 hover:text-white font-medium transition-all duration-300 hover:bg-vots-red/10 rounded-lg text-sm">
-                        <i class="fas fa-images mr-2 text-vots-red text-xs"></i>Gallery
+                    <a href="<?php echo SITE_URL; ?>/gallery.php" class="nav-link px-2 py-1.5 text-gray-300 hover:text-white font-medium transition-all duration-200 hover:bg-vots-red/10 rounded-md text-xs">
+                        <i class="fas fa-images mr-1 text-vots-red text-xs"></i>Gallery
                     </a>
-                    <a href="<?php echo SITE_URL; ?>/get-involved.php" class="nav-link px-3 py-2 text-gray-300 hover:text-white font-medium transition-all duration-300 hover:bg-vots-red/10 rounded-lg text-sm">
-                        <i class="fas fa-hands-helping mr-2 text-vots-red text-xs"></i>Get Involved
+                    <a href="<?php echo SITE_URL; ?>/get-involved.php" class="nav-link px-2 py-1.5 text-gray-300 hover:text-white font-medium transition-all duration-200 hover:bg-vots-red/10 rounded-md text-xs">
+                        <i class="fas fa-hands-helping mr-1 text-vots-red text-xs"></i>Get Involved
                     </a>
-                    <a href="<?php echo SITE_URL; ?>/contact.php" class="nav-link px-3 py-2 text-gray-300 hover:text-white font-medium transition-all duration-300 hover:bg-vots-red/10 rounded-lg text-sm">
-                        <i class="fas fa-envelope mr-2 text-vots-red text-xs"></i>Contact
+                    <a href="<?php echo SITE_URL; ?>/contact.php" class="nav-link px-2 py-1.5 text-gray-300 hover:text-white font-medium transition-all duration-200 hover:bg-vots-red/10 rounded-md text-xs">
+                        <i class="fas fa-envelope mr-1 text-vots-red text-xs"></i>Contact
                     </a>
                 </nav>
                 
                 <!-- Right Side Controls -->
-                <div class="flex items-center space-x-3">
+                <div class="flex items-center space-x-2">
                     <!-- Language Switcher -->
                     <div class="hidden md:block relative group">
-                        <select onchange="changeLanguage(this.value)" class="flex items-center space-x-2 px-3 py-2 bg-vots-gray hover:bg-vots-light-gray rounded-lg transition-all duration-300 border border-vots-red/20 hover:border-vots-red/40 text-white text-sm">
+                        <select onchange="changeLanguage(this.value)" class="flex items-center space-x-1 px-2 py-1 bg-vots-gray hover:bg-vots-light-gray rounded-md transition-all duration-200 border border-vots-red/20 hover:border-vots-red/40 text-white text-xs">
                             <option value="en" <?php echo $current_language == 'en' ? 'selected' : ''; ?>>🇺🇸 EN</option>
                             <option value="sw" <?php echo $current_language == 'sw' ? 'selected' : ''; ?>>🇰🇪 SW</option>
                             <option value="fr" <?php echo $current_language == 'fr' ? 'selected' : ''; ?>>🇫🇷 FR</option>
@@ -261,13 +182,13 @@ require_once 'config/config.php';
                     </div>
                     
                     <!-- CTA Button -->
-                    <button class="hidden md:block bg-gradient-to-r from-vots-red to-vots-dark-red hover:from-vots-dark-red hover:to-red-700 text-white px-5 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm">
-                        <i class="fas fa-heart mr-2 text-xs"></i>
-                        Donate Now
+                    <button class="hidden md:block bg-gradient-to-r from-vots-red to-vots-dark-red hover:from-vots-dark-red hover:to-red-700 text-white px-3 py-1.5 rounded-md font-semibold transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg text-xs">
+                        <i class="fas fa-heart mr-1 text-xs"></i>
+                        Donate
                     </button>
                     
                     <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg bg-vots-gray hover:bg-vots-light-gray transition-colors duration-300">
+                    <button id="mobile-menu-btn" class="lg:hidden p-1.5 rounded-md bg-vots-gray hover:bg-vots-light-gray transition-colors duration-200">
                         <div class="hamburger" id="hamburger">
                             <span></span>
                             <span></span>
@@ -280,62 +201,62 @@ require_once 'config/config.php';
     </header>
     
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 invisible transition-all duration-300"></div>
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 invisible transition-all duration-200"></div>
     
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed top-0 left-0 h-full w-64 max-w-[85vw] bg-vots-black border-r border-vots-red/20 z-50 mobile-menu-slide">
-        <div class="p-5">
+    <div id="mobile-menu" class="fixed top-0 left-0 h-full w-56 max-w-[80vw] bg-vots-black border-r border-vots-red/20 z-50 mobile-menu-slide">
+        <div class="p-3">
             <!-- Mobile Logo -->
-            <div class="flex items-center space-x-2 mb-6">
-                <div class="w-8 h-8 bg-gradient-to-br from-vots-red to-vots-dark-red rounded-lg flex items-center justify-center">
-                    <i class="fas fa-microphone text-white text-sm"></i>
+            <div class="flex items-center space-x-1.5 mb-4">
+                <div class="w-6 h-6 bg-gradient-to-br from-vots-red to-vots-dark-red rounded-md flex items-center justify-center">
+                    <i class="fas fa-microphone text-white text-xs"></i>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-base font-black text-white">Voice of the</span>
-                    <span class="text-xs font-bold text-vots-red -mt-1">STREETS</span>
+                    <span class="text-sm font-black text-white leading-tight">Voice of the</span>
+                    <span class="text-xs font-bold text-vots-red -mt-0.5 leading-tight">STREETS</span>
                 </div>
             </div>
             
             <!-- Mobile Navigation -->
-            <nav class="space-y-1">
-                <a href="<?php echo SITE_URL; ?>" class="flex items-center space-x-3 px-3 py-2 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-lg transition-all duration-300 group text-sm">
-                    <i class="fas fa-home text-vots-red group-hover:scale-110 transition-transform duration-300 text-xs"></i>
+            <nav class="space-y-0.5">
+                <a href="<?php echo SITE_URL; ?>" class="flex items-center space-x-2 px-2 py-1.5 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-md transition-all duration-200 group text-xs">
+                    <i class="fas fa-home text-vots-red group-hover:scale-110 transition-transform duration-200 text-xs"></i>
                     <span class="font-medium">Home</span>
                 </a>
-                <a href="<?php echo SITE_URL; ?>/about.php" class="flex items-center space-x-3 px-3 py-2 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-lg transition-all duration-300 group text-sm">
-                    <i class="fas fa-info-circle text-vots-red group-hover:scale-110 transition-transform duration-300 text-xs"></i>
+                <a href="<?php echo SITE_URL; ?>/about.php" class="flex items-center space-x-2 px-2 py-1.5 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-md transition-all duration-200 group text-xs">
+                    <i class="fas fa-info-circle text-vots-red group-hover:scale-110 transition-transform duration-200 text-xs"></i>
                     <span class="font-medium">About</span>
                 </a>
-                <a href="<?php echo SITE_URL; ?>/programs.php" class="flex items-center space-x-3 px-3 py-2 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-lg transition-all duration-300 group text-sm">
-                    <i class="fas fa-bullhorn text-vots-red group-hover:scale-110 transition-transform duration-300 text-xs"></i>
+                <a href="<?php echo SITE_URL; ?>/programs.php" class="flex items-center space-x-2 px-2 py-1.5 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-md transition-all duration-200 group text-xs">
+                    <i class="fas fa-bullhorn text-vots-red group-hover:scale-110 transition-transform duration-200 text-xs"></i>
                     <span class="font-medium">Programs</span>
                 </a>
-                <a href="<?php echo SITE_URL; ?>/events.php" class="flex items-center space-x-3 px-3 py-2 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-lg transition-all duration-300 group text-sm">
-                    <i class="fas fa-calendar text-vots-red group-hover:scale-110 transition-transform duration-300 text-xs"></i>
+                <a href="<?php echo SITE_URL; ?>/events.php" class="flex items-center space-x-2 px-2 py-1.5 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-md transition-all duration-200 group text-xs">
+                    <i class="fas fa-calendar text-vots-red group-hover:scale-110 transition-transform duration-200 text-xs"></i>
                     <span class="font-medium">Events</span>
                 </a>
-                <a href="<?php echo SITE_URL; ?>/blog.php" class="flex items-center space-x-3 px-3 py-2 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-lg transition-all duration-300 group text-sm">
-                    <i class="fas fa-blog text-vots-red group-hover:scale-110 transition-transform duration-300 text-xs"></i>
+                <a href="<?php echo SITE_URL; ?>/blog.php" class="flex items-center space-x-2 px-2 py-1.5 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-md transition-all duration-200 group text-xs">
+                    <i class="fas fa-blog text-vots-red group-hover:scale-110 transition-transform duration-200 text-xs"></i>
                     <span class="font-medium">Blog</span>
                 </a>
-                <a href="<?php echo SITE_URL; ?>/gallery.php" class="flex items-center space-x-3 px-3 py-2 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-lg transition-all duration-300 group text-sm">
-                    <i class="fas fa-images text-vots-red group-hover:scale-110 transition-transform duration-300 text-xs"></i>
+                <a href="<?php echo SITE_URL; ?>/gallery.php" class="flex items-center space-x-2 px-2 py-1.5 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-md transition-all duration-200 group text-xs">
+                    <i class="fas fa-images text-vots-red group-hover:scale-110 transition-transform duration-200 text-xs"></i>
                     <span class="font-medium">Gallery</span>
                 </a>
-                <a href="<?php echo SITE_URL; ?>/get-involved.php" class="flex items-center space-x-3 px-3 py-2 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-lg transition-all duration-300 group text-sm">
-                    <i class="fas fa-hands-helping text-vots-red group-hover:scale-110 transition-transform duration-300 text-xs"></i>
+                <a href="<?php echo SITE_URL; ?>/get-involved.php" class="flex items-center space-x-2 px-2 py-1.5 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-md transition-all duration-200 group text-xs">
+                    <i class="fas fa-hands-helping text-vots-red group-hover:scale-110 transition-transform duration-200 text-xs"></i>
                     <span class="font-medium">Get Involved</span>
                 </a>
-                <a href="<?php echo SITE_URL; ?>/contact.php" class="flex items-center space-x-3 px-3 py-2 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-lg transition-all duration-300 group text-sm">
-                    <i class="fas fa-envelope text-vots-red group-hover:scale-110 transition-transform duration-300 text-xs"></i>
+                <a href="<?php echo SITE_URL; ?>/contact.php" class="flex items-center space-x-2 px-2 py-1.5 text-gray-300 hover:text-white hover:bg-vots-red/10 rounded-md transition-all duration-200 group text-xs">
+                    <i class="fas fa-envelope text-vots-red group-hover:scale-110 transition-transform duration-200 text-xs"></i>
                     <span class="font-medium">Contact</span>
                 </a>
             </nav>
             
             <!-- Mobile Language Switcher -->
-            <div class="mt-6 pt-5 border-t border-vots-red/20">
-                <h3 class="text-white font-semibold mb-2 text-xs uppercase tracking-wider">Language</h3>
-                <select onchange="changeLanguage(this.value)" class="w-full bg-vots-gray border border-vots-red/20 rounded px-3 py-2 text-white text-sm">
+            <div class="mt-4 pt-3 border-t border-vots-red/20">
+                <h3 class="text-white font-semibold mb-1 text-xs uppercase tracking-wider">Language</h3>
+                <select onchange="changeLanguage(this.value)" class="w-full bg-vots-gray border border-vots-red/20 rounded px-2 py-1 text-white text-xs">
                     <option value="en" <?php echo $current_language == 'en' ? 'selected' : ''; ?>>🇺🇸 English</option>
                     <option value="sw" <?php echo $current_language == 'sw' ? 'selected' : ''; ?>>🇰🇪 Kiswahili</option>
                     <option value="fr" <?php echo $current_language == 'fr' ? 'selected' : ''; ?>>🇫🇷 Français</option>
@@ -343,9 +264,9 @@ require_once 'config/config.php';
             </div>
             
             <!-- Mobile CTA -->
-            <div class="mt-6 pt-5 border-t border-vots-red/20">
-                <button class="w-full bg-gradient-to-r from-vots-red to-vots-dark-red hover:from-vots-dark-red hover:to-red-700 text-white px-5 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-sm">
-                    <i class="fas fa-heart mr-2 text-xs"></i>
+            <div class="mt-4 pt-3 border-t border-vots-red/20">
+                <button class="w-full bg-gradient-to-r from-vots-red to-vots-dark-red hover:from-vots-dark-red hover:to-red-700 text-white px-3 py-1.5 rounded-md font-semibold transition-all duration-200 transform hover:scale-105 shadow-md text-xs">
+                    <i class="fas fa-heart mr-1 text-xs"></i>
                     Donate Now
                 </button>
             </div>
@@ -428,10 +349,10 @@ require_once 'config/config.php';
         window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
             
-            if (currentScrollY > 100) {
-                header.classList.add('shadow-2xl');
+            if (currentScrollY > 50) {
+                header.classList.add('shadow-lg');
             } else {
-                header.classList.remove('shadow-2xl');
+                header.classList.remove('shadow-lg');
             }
             
             lastScrollY = currentScrollY;

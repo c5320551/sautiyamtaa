@@ -23,3 +23,6 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /workspaces/sautiyamtaa/index.php on line 6
+[02-Aug-2025 16:02:29 Africa/Nairobi] Error fetching events: SQLSTATE[HY000]: General error: 1 no such function: CURDATE
+[02-Aug-2025 16:41:19 Africa/Nairobi] Error fetching events: SQLSTATE[HY000]: General error: 1 no such function: CURDATE
+[02-Aug-2025 16:41:42 Africa/Nairobi] Error fetching events: SQLSTATE[HY000]: General error: 1 no such function: CURDATE

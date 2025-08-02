@@ -20,9 +20,6 @@ include 'includes/header.php';
         'about-preview',
         'programs-preview', 
         'events-preview',
-        'testimonials',
-        'get-involved',
-        'latest-news'
     ];
     
     foreach($sections as $section) {
