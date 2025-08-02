@@ -7,7 +7,7 @@ if (empty($request)) $request = '/'; // Handle empty path as root
 
 // Define base paths - corrected to match your directory structure
 define('BASE_PATH', dirname(__DIR__)); // This should point to the project root
-define('PAGES_PATH', BASE_PATH . '/pages/');
+define('PAGES_PATH', BASE_PATH . '/dev/pages/');
 define('BLOGS_PATH', BASE_PATH . '/blogs/');
 define('EVENTS_PATH', BASE_PATH . '/events/');
 define('PROGRAMS_PATH', BASE_PATH . '/programs/');
@@ -16,7 +16,6 @@ define('PROGRAMS_PATH', BASE_PATH . '/programs/');
 function debugPaths() {
     if (isset($_GET['debug'])) {
         echo "<pre>";
-        echo "Current directory: " . __DIR__ . "\n";
         echo "BASE_PATH: " . BASE_PATH . "\n";
         echo "PAGES_PATH: " . PAGES_PATH . "\n";
         echo "PAGES_PATH exists: " . (is_dir(PAGES_PATH) ? 'YES' : 'NO') . "\n";
